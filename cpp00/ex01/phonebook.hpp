@@ -16,6 +16,10 @@ class	Phonebook
 			}
 		}
 		void	get_contact(Contact contact, int id);
+		void	print_arguments(void);
+		void	print_phonebook(int id, int index);
+		void	char_writer(std::string argument);
+ 		int		arg_ctrl(std::string argument);
 
 };
 #endif

@@ -15,7 +15,7 @@ void	Contact::set_nickname(std::string nickname)
 	Nickname = nickname;
 }
 
-void	Contact::set_phone_number(int phonenumber)
+void	Contact::set_phone_number(long long int phonenumber)
 {
 	PhoneNumber = phonenumber;
 }
@@ -40,7 +40,7 @@ std::string	Contact::get_nickname(void)
 	return(Nickname);
 }
 
-int	Contact::get_phone_number(void)
+long long int	Contact::get_phone_number(void)
 {
 	return(PhoneNumber);
 }
