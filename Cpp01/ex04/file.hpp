@@ -8,11 +8,10 @@ class	file
 	private:
 		std::string		temporary;
 	public:
-		char			k;
 		std::ifstream	i_file;
 		std::ofstream	o_file;
+		char			k;
 		file(char **av);
-		//~file();
 		std::ofstream get_file();
 };
 
