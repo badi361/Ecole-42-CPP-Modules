@@ -67,3 +67,23 @@ Fixed Fixed::operator-(const Fixed &fixed)
 	this->setRawBits(this->value - fixed.value);
 	return (*this);
 }
+
+bool	Fixed::operator<(const Fixed &fixed)
+{
+	return (this->getRawBits() < fixed.value);
+}
+
+bool	Fixed::operator>(const Fixed &fixed)
+{
+	return (this->getRawBits() > fixed.value);
+}
+
+bool	Fixed::operator<=(const Fixed &fixed)
+{
+	return (this->getRawBits() <= fixed.value);
+}
+
+bool	Fixed::operator>=(const Fixed &fixed)
+{
+	return (this->getRawBits() >= fixed.value);
+}
