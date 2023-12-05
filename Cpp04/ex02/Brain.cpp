@@ -10,9 +10,7 @@ Brain::Brain()
     }
 }
 
-Brain::Brain(std::string *idea) 
-{
-	std::cout << "Brain idea constructor called" << std::endl;
+Brain::Brain(std::string *idea) {
 	this->ideas = new std::string[100];
 	for (int i = 0; i < 100; i++)
     {
