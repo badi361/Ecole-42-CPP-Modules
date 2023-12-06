@@ -31,7 +31,7 @@ Cat& Cat::operator=(const Cat& cpy)
 {
 	std::cout << "Cat '=' operator called" << std::endl;
 	this->type = cpy.type;
-	*(this->brain) = *(cpy.brain);
+	(this->brain) = new Brain(*(cpy.brain));
 	return (*this);
 }
 

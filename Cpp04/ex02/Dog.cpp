@@ -31,7 +31,7 @@ Dog& Dog::operator=(const Dog& cpy)
 {
 	std::cout << "Dog '=' operator called" << std::endl;
 	this->type = cpy.type;
-	*(this->brain) = *(cpy.brain);
+	(this->brain) = new Brain(*(cpy.brain));
 	return (*this);
 }
 

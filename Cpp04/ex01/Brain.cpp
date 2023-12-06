@@ -3,26 +3,17 @@
 Brain::Brain()
 {
 	std::cout << "Brain default constructor called" << std::endl;
-    this->ideas = new std::string[100];
-    for(int i = 0; i < 100; i++)
-    {
-        this->ideas[i] = "There is no idea";
-    }
 }
 
-Brain::Brain(std::string *idea) 
+Brain::Brain(std::string idea)
 {
 	std::cout << "Brain idea constructor called" << std::endl;
-	this->ideas = new std::string[100];
-	for (int i = 0; i < 100; i++)
-    {
-		this->ideas[i] = idea[i];
-    }
+	for(int i = 0; i < 100; i++)
+		this->ideas[i] = idea;
 }
 
 Brain::~Brain()
 {
-    delete [] this->ideas;
 	std::cout << "Brain destructor called" << std::endl;
 }
 
@@ -35,11 +26,10 @@ Brain::Brain(const Brain& brain)
 Brain& Brain::operator=(const Brain& brain)
 {
 	std::cout << "Brain '=' operator called" << std::endl;
-	delete [] this->ideas;
-	this->ideas = new std::string[100];
-	for(int i = 0; i < 100; i++)
+	if (this != &brain)
 	{
-		this->ideas[i] = brain.ideas[i];
+		for(int i = 0; i < 100; i++)
+			this->ideas[i] = brain.ideas[i];
 	}
 	return (*this);
 }
@@ -47,4 +37,10 @@ Brain& Brain::operator=(const Brain& brain)
 std::string* Brain::getIdeas(void)
 {
 	return (this->ideas);
+}
+
+void	Brain::setIdea(std::string idea)
+{
+	for(int i = 0; i < 100; i++)
+		this->ideas[i] = idea;
 }

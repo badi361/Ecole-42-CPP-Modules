@@ -14,7 +14,7 @@ class AAnimal
 		AAnimal(const AAnimal& cpy);
 		AAnimal& operator=(const AAnimal& cpy);
 
-		virtual void	makeSound(void) const;
+		virtual void	makeSound(void) const = 0;
 		std::string		getType(void) const;
 };
 
