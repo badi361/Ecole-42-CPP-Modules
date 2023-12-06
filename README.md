@@ -1,3 +1,3 @@
 # Ecole-42-CPP-Modules
 
-C++ Projects
+C++ OOP Projects
