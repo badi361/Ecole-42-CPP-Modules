@@ -5,13 +5,13 @@ Form::Form() : name("default"), to_sign_grade(150), to_execute_grade(150)
     this->is_signed = false;
 }
 
-Form::Form(std::string name, bool is_signed, int to_sign_grade, int to_execute_grade) : name(name), to_sign_grade(to_sign_grade), to_execute_grade(to_execute_grade)
+Form::Form(std::string name, int to_sign_grade, int to_execute_grade) : name(name), to_sign_grade(to_sign_grade), to_execute_grade(to_execute_grade)
 {
     if (to_sign_grade > 150 || to_execute_grade > 150)
         throw Form::GradeTooHighException();
     else if (to_sign_grade < 1 || to_execute_grade < 1)
         throw Form::GradeTooLowException();
-    this->is_signed = is_signed;
+    this->is_signed = false;
 }
 
 Form::~Form()
