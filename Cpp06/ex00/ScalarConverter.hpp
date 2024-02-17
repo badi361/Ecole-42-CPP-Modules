@@ -32,6 +32,7 @@ class ScalarConverter
 		static	void	float_to_char(float arg);
 		static	void	float_to_int(float arg);
 		static	void	float_to_double(float arg);
+        static  int     pseudoCheck(std::string arg);
 
 };
 

@@ -4,6 +4,7 @@ ScalarConverter::ScalarConverter()
 {
 
 }
+
 ScalarConverter::~ScalarConverter()
 {
 
@@ -13,6 +14,7 @@ ScalarConverter::ScalarConverter(const ScalarConverter &source)
 {
     *this = source;
 }
+
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter &source)
 {
     (void)source;
@@ -58,8 +60,8 @@ void    ScalarConverter::convert(std::string arg)
 			std::cout << "float: " << casted << "f" <<  std::endl;
 		float_to_double(casted);
 	}
-	else
-		std::cout << "wrong argumant" << std::endl;
+	else if (!pseudoCheck(arg))
+		std::cout << "Wrong Argumant!" << std::endl;
 }
 
 bool    ScalarConverter::is_char(std::string arg)
@@ -277,4 +279,36 @@ void	ScalarConverter::float_to_double(float arg)
 		std::cout << "double: " << number << ".0" << std::endl;
 	else
 		std::cout << "double: " << number << std::endl;
+}
+
+int ScalarConverter::pseudoCheck(std::string arg){
+	if (arg == "-inf" || arg == "-inff"){
+		float f = std::numeric_limits<float>::infinity();
+		f *= -1;
+		std::cout << "char: " << "Impossible" << std::endl;
+		std::cout << "int: " << "Impossible" << std::endl;
+		std::cout << "float: " << f << "f" << std::endl;
+		double d = std::numeric_limits<double>::infinity();
+		d *= -1;
+		std::cout << "double: " << d << std::endl;
+	}
+	else if (arg == "+inf" || arg == "+inff"){
+		float f = std::numeric_limits<float>::infinity();
+		std::cout << "char: " << "Impossible" << std::endl;
+		std::cout << "int: " << "Impossible" << std::endl;
+		std::cout << "float: " << f << "f" << std::endl;
+		double d = std::numeric_limits<double>::infinity();
+		std::cout << "double: " << d << std::endl;
+	}
+	else if (arg == "nan" || arg == "nanf"){
+		std::cout << "char: " << "Impossible" << std::endl;
+		std::cout << "int: " << "Impossible" << std::endl;
+		float f = std::numeric_limits<float>::quiet_NaN();
+		std::cout << "float: " << f << "f" << std::endl;
+		double d = std::numeric_limits<double>::quiet_NaN();
+		std::cout << "double: " << d << std::endl;
+	}
+	else
+		return 0;
+	return 1;
 }
